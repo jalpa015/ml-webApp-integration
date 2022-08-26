@@ -20,7 +20,7 @@ def recommend_movies():
     print(request, file=sys.stdout)
     res = recommendation.results(movie_name)
     print(jsonify(res), file=sys.stdout)
-    if res is not None:
+    if res is None:
         return render_template("index.html", error_message=jsonify("Movie not in database"))
     else:
         return render_template("index.html", recommended_movie=res)

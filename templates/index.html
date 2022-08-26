@@ -41,8 +41,15 @@
 			<!-- Main Input For Receiving Query to ML -->
 
 			<div class="intro-content">
-				Get movie recommendations based on the cast, genre and plot of
-				movie entered in box below
+				This Web App is a Machine Learning Recommender System that
+				recommends movies which are similar to the movie entered in the
+				search box below.
+				<div class="intro-content">
+					The Machine Learning model has been trained on a dataset of
+					approximately 6000 movies. The input features of the ML
+					model consisted of the cast, genre, title and plot of the
+					movie.
+				</div>
 			</div>
 
 			<form action="{{ url_for('recommend_movies')}}" method="POST">
@@ -57,17 +64,8 @@
 			</form>
 
 			<br />
-			
-			{% if recommended_movie is defined %}
-			<div class="intro-content">
-				Movie not in database.
-				<div class="intro-content">
-					Please enter another movie like, Star Trek, Logan, Men in
-					black and Hulchul.
-				</div>
-			</div>
-			{% else %}
 			<br />
+			{% if recommended_movie|length and recommended_movie is defined %}
 			<table>
 				{% for movie in recommended_movie %}
 				<tr>
@@ -76,8 +74,15 @@
 				</tr>
 				{% endfor %}
 			</table>
-
-			{% endif %}
+			{% else %} {% if error_message is defined %}
+			<div class="intro-content">
+				Movie not in database.
+				<div class="intro-content">
+					Please enter another movie like, Star Trek, Logan, Men in
+					black and Hulchul.
+				</div>
+			</div>
+			{% endif %} {% endif %}
 		</div>
 	</body>
 </html>
