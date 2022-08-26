@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Flask App</title>
+		<link
+			href="https://fonts.googleapis.com/css?family=Pacifico"
+			rel="stylesheet"
+			type="text/css"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css?family=Arimo"
+			rel="stylesheet"
+			type="text/css"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css?family=Hind:300"
+			rel="stylesheet"
+			type="text/css"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300"
+			rel="stylesheet"
+			type="text/css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+			integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="{{ url_for('static', filename='styles.css') }}"
+		/>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="header">Movie Recommendation</div>
+			<!-- Main Input For Receiving Query to ML -->
+
+			<div class="intro-content">
+				Get movie recommendations based on the cast, genre and plot of
+				movie entered in box below
+			</div>
+
+			<form action="{{ url_for('recommend_movies')}}" method="get">
+				<input
+					type="text"
+					name="title"
+					class="input-text"
+					placeholder="Enter a movie title"
+					required="required"
+				/>
+				<button type="submit" class="submit_btn">Recommend</button>
+			</form>
+
+			<br />
+			<br />
+			<table>
+				{% for movie in recommended_movie %} {#
+				<h4 class="float-left">{{ movie.Name }}</h4>
+				<span class="float-right"> {{ movie.Genres }} </span
+				>#}
+				<tr>
+					<td class="float-left">{{ movie.Name }}</td>
+					<td class="float-left">{{ movie.Genres }}</td>
+				</tr>
+
+				{% endfor %}
+			</table>
+		</div>
+	</body>
+</html>
