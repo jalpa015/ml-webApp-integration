@@ -27,6 +27,10 @@ body {
 	letter-spacing: 1.2px;
 }
 
+table {
+	width: 100%;
+}
+
 body::-webkit-scrollbar {
 	width: 0;
 }
@@ -42,10 +46,14 @@ body::-webkit-scrollbar {
 
 .float-right {
 	float: right;
+	text-align: left;
+	width: 50%;
 }
 
 .float-left {
 	float: left;
+	text-align: left;
+	width: 50%;
 }
 
 .intro-content {

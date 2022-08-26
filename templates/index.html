@@ -37,7 +37,7 @@
 
 	<body>
 		<div class="container">
-			<div class="header">Movie Recommendation</div>
+			<div class="header">ML Recommender System</div>
 			<!-- Main Input For Receiving Query to ML -->
 
 			<div class="intro-content">
@@ -45,7 +45,7 @@
 				movie entered in box below
 			</div>
 
-			<form action="{{ url_for('recommend_movies')}}" method="get">
+			<form action="{{ url_for('recommend_movies')}}" method="POST">
 				<input
 					type="text"
 					name="title"
@@ -59,15 +59,11 @@
 			<br />
 			<br />
 			<table>
-				{% for movie in recommended_movie %} {#
-				<h4 class="float-left">{{ movie.Name }}</h4>
-				<span class="float-right"> {{ movie.Genres }} </span
-				>#}
-				<tr>
-					<td class="float-left">{{ movie.Name }}</td>
-					<td class="float-left">{{ movie.Genres }}</td>
-				</tr>
-
+				{% for movie in recommended_movie %}
+					<tr>
+						<td class="float-left">{{ movie.Name }}</td>
+						<td class="float-right">{{ movie.Genres }}</td>
+					</tr>
 				{% endfor %}
 			</table>
 		</div>
