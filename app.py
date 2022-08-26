@@ -1,3 +1,4 @@
+from operator import length_hint
 from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 import recommendation
@@ -18,8 +19,12 @@ def recommend_movies():
     movie_name = str(features[0])
     print(request, file=sys.stdout)
     res = recommendation.results(movie_name)
-    print(jsonify(res))
-    return render_template("index.html", recommended_movie=res)
+    print(jsonify(res), file=sys.stdout)
+    if res is not None:
+        return render_template("index.html", error_message=jsonify("Movie not in database"))
+    else:
+        return render_template("index.html", recommended_movie=res)
+    
 
 
 if __name__ == "__main__":
