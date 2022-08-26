@@ -50,22 +50,34 @@
 					type="text"
 					name="title"
 					class="input-text"
-					placeholder="Enter a movie title"
+					placeholder="Enter a movie title like 'Star Trek', 'Hulchul', 'Logan', 'Men in black' "
 					required="required"
 				/>
 				<button type="submit" class="submit_btn">Recommend</button>
 			</form>
 
 			<br />
+			
+			{% if recommended_movie is defined %}
+			<div class="intro-content">
+				Movie not in database.
+				<div class="intro-content">
+					Please enter another movie like, Star Trek, Logan, Men in
+					black and Hulchul.
+				</div>
+			</div>
+			{% else %}
 			<br />
 			<table>
 				{% for movie in recommended_movie %}
-					<tr>
-						<td class="float-left">{{ movie.Name }}</td>
-						<td class="float-right">{{ movie.Genres }}</td>
-					</tr>
+				<tr>
+					<td class="float-left">{{ movie.Name }}</td>
+					<td class="float-right">{{ movie.Genres }}</td>
+				</tr>
 				{% endfor %}
 			</table>
+
+			{% endif %}
 		</div>
 	</body>
 </html>
