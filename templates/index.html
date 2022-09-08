@@ -70,7 +70,7 @@
 				{% for movie in recommended_movie %}
 				<tr>
 					<td class="float-left">{{ movie.Name }}</td>
-					<td class="float-right">{{ movie.Genres }}</td>
+					<td class="float-right">{{ movie.Genres|join(', ') }}</td>
 				</tr>
 				{% endfor %}
 			</table>

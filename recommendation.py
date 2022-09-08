@@ -1,3 +1,4 @@
+import ast
 import pandas as pd
 import scipy.sparse as sp
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
@@ -7,6 +8,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 def get_data():
     movie_data = pd.read_csv("data/movie_data.csv")
     movie_data["original_title"] = movie_data["original_title"].str.lower()
+    movie_data["genres"] = movie_data.genres.apply(lambda s: list(ast.literal_eval(s)))
     return movie_data
 
 

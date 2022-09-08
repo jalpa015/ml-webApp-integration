@@ -68,7 +68,7 @@ body::-webkit-scrollbar {
 	padding: 40px;
 	background: #553D67;
 	height: fit-content;
-	width: 50%;
+	width: 70%;
 	border-radius: 15px;
 }
 
@@ -110,4 +110,30 @@ input:focus {
 	padding: 10px;
 	color: white;
 	font-family: "Roboto Light";
+}
+
+tr:nth-child(even) {
+	background-color: #f2f2f221;
+}
+
+tr:hover {
+	background-color: rgba(221, 221, 221, 0.266);
+}
+
+td,
+th {
+	padding: 10px;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+tr,
+th {
+	border-right: 1px solid rgb(221, 221, 221);
+	border-left: 1px solid rgb(221, 221, 221);
+	border-top: 1px solid rgb(221, 221, 221);
+	border-bottom: 1px solid rgb(221, 221, 221);
+	padding: 10px;
 }
