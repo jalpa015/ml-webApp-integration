@@ -3,12 +3,16 @@ from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 import recommendation
 import sys
+from werkzeug.middleware.proxy_fix import ProxyFix
 # from werkzeug.contrib.atom import AtomFeed
 # from urllib.parse import urljoin
 
 app = Flask(__name__)
 CORS(app)
 
+app.wsgi_app = ProxyFix(
+    app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1
+)
 
 @app.route("/")
 def home():
@@ -30,4 +34,4 @@ def recommend_movies():
 
 
 # if __name__ == "__main__":
-    # app.run(port=5000, debug=True)
+#     app.run(port=5000, debug=True)
