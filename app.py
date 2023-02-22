@@ -19,7 +19,7 @@ def home():
     return render_template("index.html")
 
 
-@app.route("/movie", methods=["POST"])
+@app.route("/movie", methods=["POST", "GET"])
 def recommend_movies():
     features = [str(x) for x in request.form.values()]
     movie_name = str(features[0])
@@ -33,5 +33,5 @@ def recommend_movies():
     
 
 
-# if __name__ == "__main__":
-#     app.run(port=5000, debug=True)
+if __name__ == "__main__":
+    app.run(port=5000, debug=True)
