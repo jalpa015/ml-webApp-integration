@@ -1,6 +1,6 @@
 # Recommendation System
 
-- A Flask application hosted on Heroku platform to execute integration of Machine Learning model with a web application 
+- A Flask application to execute integration of Machine Learning model with a web application 
 
 Dataset used:
 [TMDB Movies Dataset](https://www.kaggle.com/tmdb/tmdb-movie-metadata?select=tmdb_5000_movies.csv) 
